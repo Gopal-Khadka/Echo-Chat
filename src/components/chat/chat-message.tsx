@@ -25,7 +25,7 @@ const ChatMessage = ({
       <div
         id="message"
         className={cn(
-          "rounded px-4 max-w-[70%] py-2",
+          "rounded-lg px-4 max-w-[70%] py-2",
           isUser
             ? "bg-blue-500 text-white"
             : "bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100"

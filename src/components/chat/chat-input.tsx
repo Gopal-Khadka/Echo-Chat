@@ -1,15 +1,14 @@
 "use client";
-
-import { chatReducer } from "@/app/chat/chatReducer";
+import { ChatContext } from "@/app/chat/_lib/chat-provider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChatMessageType } from "@/types/types";
 import { SendHorizonalIcon } from "lucide-react";
-import React, { useReducer, useState } from "react";
+import React, { useContext, useState } from "react";
 
 const ChatInput = () => {
   const [message, setMessage] = useState("");
-  const [messages, dispatch] = useReducer(chatReducer, []);
+  const {  dispatch } = useContext(ChatContext);
 
   const handleMessageSend = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -23,7 +22,6 @@ const ChatInput = () => {
     };
 
     dispatch({ type: "ADD_MESSAGE", payload: newMessage });
-    console.log(messages);
     setMessage("");
   };
   return (

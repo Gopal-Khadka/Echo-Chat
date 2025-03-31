@@ -1,6 +1,6 @@
 import { ChatMessageType } from "@/types/types";
 
-type Action =
+export type Action =
   | { type: "ADD_MESSAGE"; payload: ChatMessageType }
   | { type: "CLEAR_MESSAGES" };
 
