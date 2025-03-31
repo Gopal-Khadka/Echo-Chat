@@ -1,12 +1,8 @@
+"use client";
+
 import ChatConversation from "@/components/chat/chat-conversation";
 import ChatInput from "@/components/chat/chat-input";
-import type { Metadata } from "next";
 import React from "react";
-
-export const metadata: Metadata = {
-  title: "Chat | Echo Chat",
-  description: "Chat page for users",
-};
 
 const ChatPage = () => {
   return (
