@@ -8,11 +8,11 @@ import ChatInput from "@/components/chat/chat-input";
 import ChatConversation from "@/components/chat/chat-conversation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { AuthContext } from "@/lib/auth-provider";
+import { useAuth } from "@/components/provider/auth-provider";
 
 const ChatPage = () => {
   const [messagesList, dispatch] = useReducer(chatReducer, []);
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isAuthenticated } = useAuth();
 
   return (
     <ChatContext.Provider value={{ messagesList, dispatch }}>
@@ -21,7 +21,7 @@ const ChatPage = () => {
         <Link href="/">Go to home</Link>
       </Button>
       <ChatConversation />
-      {isLoggedIn && <ChatInput />}
+      {isAuthenticated && <ChatInput />}
     </ChatContext.Provider>
   );
 };
